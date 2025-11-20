@@ -1,0 +1,342 @@
+/* ===== Base Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", system-ui, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fafafa;
+    color: #222;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===== Header ===== */
+header {
+    width: 100%;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #111;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #111;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(145deg,#ffffff, #f3f3f3);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #111 10%, transparent 70%);
+    opacity: 0.05;
+    border-radius: 50%;
+}
+
+.hero .content {
+    max-width: 700px;
+    z-index: 1;
+    animation: fadeUp 1.2s ease forwards;
+    
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: #111;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero h2 {
+    font-size: 1.6rem;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.hero p {
+    font-size: 1.05rem;
+    color: #444;
+    max-width: 600px;
+    margin: 0 auto 35px;
+    line-height: 1.8;
+}
+
+/* ===== Buttons ===== */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: #111;
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.btn.secondary {
+    border: 2px solid #111;
+    color: #111;
+}
+
+.btn.secondary:hover {
+    background: #111;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 25px 0;
+    background: #fff;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 30px;
+    }
+
+    nav a {
+        margin-left: 20px;
+        font-size: 0.95rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero h2 {
+        font-size: 1.2rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+}
+
+/* ===== About Section ===== */
+.about {
+    padding: 100px 20px;
+    background: #fff;
+}
+.about-container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+.profile-img {
+    border-radius: 20px;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.about-text {
+    flex: 1;
+}
+.about-text h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+.about-text p {
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* ===== Projects Section ===== */
+.projects {
+    padding: 100px 20px;
+    background: #f8f8f8;
+}
+.projects h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+.section-desc {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.project-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* ===== Contact Section ===== */
+.contact {
+    padding: 100px 20px;
+    background: #fff;
+}
+.contact h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+.contact .section-desc {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+}
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border: 1px solid #111;
+    outline: none;
+}
